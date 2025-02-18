@@ -25,7 +25,7 @@ a{
   color: #006b3a;
 }
 main a{
-  outline: none;
+  outline: 1px solid #006b3a; /* This will create a border around the element when use tab to select it */
 }
 h2 {
   margin-top: 0;
@@ -206,7 +206,8 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
-        <a href="#" tabindex="-1">Business</a>
+        <!-- tabindex="-1" means that the element is not focusable, I'll remove it, unless it is meant to be-->
+        <a href="#">Business</a>
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
         <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
@@ -218,7 +219,8 @@ article p {
     <div class="container">
       <h3>Like the Funion? Consider joining our newsletter!</h3>
       <input type="text">
-      <button type="button" onfocus="getFocus()">Sign up</button></div>
+      <!-- change onFocus to onclick, because I think taking user to a new page without confirmation is not a proper.-->
+      <button type="button" onclick="getFocus()">Sign up</button></div>
       
     </div>
   </div>
@@ -239,11 +241,12 @@ article p {
     <div class="side-by-side">
       <div class="column">
         <div class="tier-header">
-          <h2 tabindex="0">In the news</h2>
+          <!-- tabindex="0" means that the element is focusable, but I dont think we need to focus on a header-->
+          <h2>In the news</h2>
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
-          <p><a href="#" tabindex="1"><b>Read More</b></a></p>
+          <p><a href="#"><b>Read More</b></a></p>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/bee.jpg?raw=true" alt="A bee on top of a flower" />
         </article>
       </div>
