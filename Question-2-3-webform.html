@@ -25,6 +25,7 @@
       margin: 0;
     }
     
+    /* Adds a red asterisk after elements with the 'required' class to indicate required fields */
     .required::after {
       content: "*";
       color: red;
@@ -33,9 +34,10 @@
     </head>
     <body>
         <h1>Feedback form</h1>
-    <form>
+    <!-- this can make the error message visible? I guess that's what we wanted?-->
+    <form novalidate>
         <div class="control">
-          <label for="fullname">Full name <span class="required">required</span></label><input id="fullname" name="fullname" type="text" required aria-required="true" />
+          <label for="name">Full name <span class="required">required</span></label><input id="name" name="name" type="text" required aria-required="true" />
         </div>
         <div class="control">
           <!-- add aria-describedby to the textarea -->
@@ -106,7 +108,7 @@
               $referencedElement = $input;
             }
       // R.G. hint: fix next line ;)
-            $error = $('<a>' + message + '</a>');
+            $error = $('<a href="#" class="error" tabindex="0">' + message + "</a>");
             $error.click(function (e) {
               // If we rely on the link's href pointing to the input's ID, it doesn't trigger forms mode in screen readers
               $referencedElement.focus();
